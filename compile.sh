@@ -109,9 +109,9 @@ if [ ! -z "$FETCH" ]
 then
     # 1/ libvlc, libvlccore and its plugins
     TESTED_HASH=5428d0e1f1a
-    if [ ! -d "vlc" ]; then
+    if [ ! -d "vlc1" ]; then
         echo "VLC source not found, cloning"
-        git clone git://git.videolan.org/vlc.git vlc
+       # git clone git://git.videolan.org/vlc.git vlc
         cd vlc
         git checkout -B android ${TESTED_HASH}
     else
