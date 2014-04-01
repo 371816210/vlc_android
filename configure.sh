@@ -105,7 +105,6 @@ sh $VLC_SOURCEDIR/configure --host=$TARGET_TUPLE --build=x86_64-unknown-linux $E
                 --enable-gles2 \
                 --disable-goom \
                 --disable-projectm \
-                --disable-sout \
                 --enable-vorbis \
                 --disable-faad \
                 --disable-x264 \
