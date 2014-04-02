@@ -256,7 +256,7 @@ public class LibVLC {
 
     public void setAout(int aout) {
         if (aout < 0)
-            this.aout = LibVlcUtil.isICSOrLater() ? AOUT_OPENSLES : AOUT_AUDIOTRACK_JAVA;
+            this.aout = LibVlcUtil.isGingerbreadOrLater() ? AOUT_OPENSLES : AOUT_AUDIOTRACK_JAVA;
         else
             this.aout = aout;
     }
@@ -598,6 +598,13 @@ public class LibVLC {
      * @return the libVLC changeset string
      */
     public native String changeset();
+    
+    
+    
+    public boolean takeSnapShot(String file, int width, int height) {  
+          return takeSnapShot(0, file, width, height);  
+}
+
 
     /**
      * Get a media thumbnail.
@@ -683,4 +690,14 @@ public class LibVLC {
     public native String[] getPresets();
 
     public native float[] getPreset(int index);
+    
+    private native boolean takeSnapShot( int num, String file, int width, int height);  
+    public native boolean videoRecordStart(String path);
+    
+    public native boolean videoRecordStop();
+    
+    public native boolean videoIsRecording();
+    
+    public native boolean videoIsRecordable();
+    public native int getState();
 }
