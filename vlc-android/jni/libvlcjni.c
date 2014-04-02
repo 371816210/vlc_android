@@ -528,3 +528,16 @@ jstring Java_org_videolan_libvlc_LibVLC_changeset(JNIEnv* env, jobject thiz)
 {
     return (*env)->NewStringUTF(env, libvlc_get_changeset());
 }
+jboolean Java_org_videolan_libvlc_LibVLC_takeSnapShot(JNIEnv *env, jobject thiz,jint number, jstring path, jint width,jint height)  
+{  
+    jboolean isCopy;  
+   libvlc_media_player_t *mp = getMediaPlayer(env, thiz);  
+     /* Get C string */  
+   const char* psz_path = (*env)->GetStringUTFChars(env, path, &isCopy);  
+  
+   if (mp)  
+        if(libvlc_video_take_snapshot(mp, (int)number,psz_path , (int)width,(int)height)==0)  
+            return JNI_TRUE;  
+   return JNI_FALSE;  
+  
+} 
