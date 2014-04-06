@@ -113,7 +113,7 @@ then
         echo "VLC source not found, cloning"
        # git clone git://git.videolan.org/vlc.git vlc
         cd vlc
-        git checkout -B android ${TESTED_HASH}
+       # git checkout -B android ${TESTED_HASH}
     else
         echo "VLC source found"
         cd vlc
